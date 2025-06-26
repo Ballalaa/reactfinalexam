@@ -11,7 +11,6 @@ export default function Profile() {
     email: user?.email || '',
   })
 
-  // Fetch user data from API if not exists
   useEffect(() => {
     const fetchUser = async () => {
       if (user) return
@@ -50,17 +49,6 @@ export default function Profile() {
     }
   }
 
-  const clearData = () => {
-    if (
-      confirm(
-        'Are you sure you want to clear all data? This will remove all tasks and user data.'
-      )
-    ) {
-      localStorage.clear()
-      window.location.reload()
-    }
-  }
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -73,7 +61,6 @@ export default function Profile() {
     <div className="space-y-6">
       <h1 className="text-3xl font-bold text-gray-900">Profile</h1>
 
-      {/* User Info Card */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center justify-between">
